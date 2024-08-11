@@ -9,7 +9,8 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "prettier": "prettier --check .",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "ci": "npm run lint && npm run prettier"
   },
   "dependencies": {
     "@chakra-ui/react": "^2.8.2",
