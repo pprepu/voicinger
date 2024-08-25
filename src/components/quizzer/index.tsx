@@ -24,11 +24,11 @@ const Quizzer: React.FC = () => {
     setCurrentIndex((ci) => {
       if (ci >= selectedScales.length - 1) {
         setRoundsQuizzed((rq) => rq + 1)
+        setSelectedScales(shuffleArray(selectedScales))
         return 0
       }
       return ci + 1
     })
-    setSelectedScales(shuffleArray(selectedScales))
   }
 
   useEffect(() => {
@@ -48,6 +48,7 @@ const Quizzer: React.FC = () => {
     // eslint-disable-next-line
   }, [isStarted])
   logger.info(currentIndex, currentIntervalId)
+  logger.info(selectedScales.map((scale) => scale.tonic).join("-"))
   const currentQuiz = selectedScales[currentIndex]?.tonic ?? ""
 
   return (
