@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import {
   Box,
   Slider,
@@ -21,7 +21,7 @@ const CustomRangeSlider: React.FC<CustomRangeSliderProps> = ({
   handleChange,
   defaultValue,
 }) => {
-  const [sliderValue, setSliderValue] = React.useState(defaultValue)
+  const [sliderValue, setSliderValue] = useState(defaultValue)
 
   const onChange = (value: number) => {
     setSliderValue(value)

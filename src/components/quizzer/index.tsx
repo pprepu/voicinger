@@ -1,4 +1,4 @@
-import { Flex, Text } from "@chakra-ui/react"
+import { Button, Flex, Text } from "@chakra-ui/react"
 import QuizCard from "./QuizCard"
 import Options from "./Options"
 import { useEffect, useState } from "react"
@@ -7,18 +7,34 @@ import { Scale } from "../../utils/scales/types"
 import { shuffleArray } from "../../utils/array"
 import logger from "../../utils/logger"
 
-const initialScales = shuffleArray(createBasicScales())
-const DEFAULT_TIME = 4
+// initial values
+const INITIAL_IS_STARTED = false
+const INITIAL_SCALES = shuffleArray(createBasicScales())
+const INITIAL_QUIZ_TIME = 4
+const INITIAL_INDEX = 0
+const INITIAL_INTERVAL_ID = undefined
+const INITIAL_ROUNDS_QUIZZED = 0
 
 const Quizzer: React.FC = () => {
-  const [isStarted, setIsStarted] = useState(false)
-  const [selectedScales, setSelectedScales] = useState<Scale[]>(initialScales)
-  const [currentIndex, setCurrentIndex] = useState<number>(0)
+  const [isStarted, setIsStarted] = useState(INITIAL_IS_STARTED)
+  const [selectedScales, setSelectedScales] = useState<Scale[]>(INITIAL_SCALES)
+  const [currentIndex, setCurrentIndex] = useState<number>(INITIAL_INDEX)
   const [currentIntervalId, setCurrentIntervalId] = useState<
     NodeJS.Timeout | undefined
-  >(undefined)
-  const [roundsQuizzed, setRoundsQuizzed] = useState<number>(0)
-  const [quizTime, setQuizTime] = useState<number>(DEFAULT_TIME)
+  >(INITIAL_INTERVAL_ID)
+  const [roundsQuizzed, setRoundsQuizzed] = useState<number>(
+    INITIAL_ROUNDS_QUIZZED
+  )
+  const [quizTime, setQuizTime] = useState<number>(INITIAL_QUIZ_TIME)
+
+  const resetState = () => {
+    setIsStarted(INITIAL_IS_STARTED)
+    setSelectedScales(shuffleArray(createBasicScales())) // notice this!
+    setCurrentIndex(INITIAL_INDEX)
+    clearInterval(currentIntervalId)
+    setCurrentIntervalId(INITIAL_INTERVAL_ID)
+    setRoundsQuizzed(INITIAL_ROUNDS_QUIZZED)
+  }
 
   const showNextQuizCard = () => {
     setCurrentIndex((ci) => {
@@ -58,7 +74,11 @@ const Quizzer: React.FC = () => {
         setQuizTime={setQuizTime}
         defaultTime={quizTime}
       />
-      <QuizCard setIsStarted={setIsStarted} currentQuiz={currentQuiz} />
+      <QuizCard
+        setIsStarted={setIsStarted}
+        currentQuiz={currentQuiz}
+        animate={isStarted && currentIndex === 0}
+      />
       <Text
         fontSize={{ base: "2xl", md: "4xl" }}
         fontWeight="bold"
@@ -69,6 +89,24 @@ const Quizzer: React.FC = () => {
       >
         {roundsQuizzed}
       </Text>
+      <Button
+        mt={4}
+        size="lg"
+        bg="#7FA1C3"
+        color="white"
+        _hover={{
+          transform: "scale(1.1)",
+          bg: "#6482AD",
+        }}
+        transition="all 0.3s ease-in-out"
+        borderRadius="full"
+        boxShadow="md"
+        fontWeight="bold"
+        letterSpacing="wider"
+        onClick={resetState}
+      >
+        Reset
+      </Button>
     </Flex>
   )
 }

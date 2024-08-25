@@ -6,17 +6,17 @@ const Home: React.FC = () => {
   return (
     <Container
       maxW="container.md"
-      py={{ base: 6, md: 10 }} // Responsive padding
-      px={{ base: 4, md: 6 }} // Responsive padding for smaller screens
+      py={{ base: 6, md: 10 }}
+      px={{ base: 4, md: 6 }}
     >
       <Box
         textAlign="center"
-        borderRadius="md" // Rounded corners
-        boxShadow="sm" // Small shadow for depth
-        p={{ base: 4, md: 8 }} // Responsive padding
-        bg="#E2DAD6" // Background color
-        _hover={{ boxShadow: "md" }} // Hover effect
-        transition="box-shadow 0.2s" // Smooth transition for hover effect
+        borderRadius="md"
+        boxShadow="sm"
+        p={{ base: 4, md: 8 }}
+        bg="#E2DAD6"
+        _hover={{ boxShadow: "md" }}
+        transition="box-shadow 0.2s"
       >
         <Quizzer />
       </Box>
