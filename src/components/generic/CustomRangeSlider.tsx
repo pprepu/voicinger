@@ -30,7 +30,17 @@ const CustomRangeSlider: React.FC<CustomRangeSliderProps> = ({
 
   return (
     <Box width="100%" padding="4">
-      <Text mb="4">{sliderValue}</Text>
+      <Text
+        mb="4"
+        fontSize={{ base: "2xl", md: "4xl" }}
+        fontWeight="bold"
+        color="#6482AD"
+        textAlign="center"
+        textTransform="uppercase"
+        letterSpacing="widest"
+      >
+        {sliderValue}
+      </Text>
       <Slider
         aria-label="slider-ex"
         value={sliderValue}
@@ -40,7 +50,7 @@ const CustomRangeSlider: React.FC<CustomRangeSliderProps> = ({
         defaultValue={defaultValue}
       >
         <SliderTrack>
-          <SliderFilledTrack />
+          <SliderFilledTrack bg="#6482AD" />
         </SliderTrack>
         <SliderThumb />
       </Slider>

@@ -20,7 +20,7 @@ const Options: React.FC<OptionsProps> = ({
     setQuizTime(time)
   }
   return (
-    <Flex mb="1em">
+    <Flex mb="1em" w="100%">
       <CustomRangeSlider
         minValue={1}
         maxValue={8}

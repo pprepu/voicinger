@@ -1,4 +1,4 @@
-import { Flex } from "@chakra-ui/react"
+import { Flex, Text } from "@chakra-ui/react"
 import QuizCard from "./QuizCard"
 import Options from "./Options"
 import { useEffect, useState } from "react"
@@ -52,14 +52,23 @@ const Quizzer: React.FC = () => {
   const currentQuiz = selectedScales[currentIndex]?.tonic ?? ""
 
   return (
-    <Flex flexDir="column">
+    <Flex flexDir="column" alignItems="center" mb="2">
       <Options
         isStarted={isStarted}
         setQuizTime={setQuizTime}
         defaultTime={quizTime}
       />
       <QuizCard setIsStarted={setIsStarted} currentQuiz={currentQuiz} />
-      {roundsQuizzed}
+      <Text
+        fontSize={{ base: "2xl", md: "4xl" }}
+        fontWeight="bold"
+        color="#6482AD"
+        textAlign="center"
+        textTransform="uppercase"
+        letterSpacing="widest"
+      >
+        {roundsQuizzed}
+      </Text>
     </Flex>
   )
 }

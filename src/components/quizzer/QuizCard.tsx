@@ -11,8 +11,29 @@ const QuizCard: React.FC<QuizCardProps> = ({ setIsStarted, currentQuiz }) => {
   }
 
   return (
-    <Card align="center" onClick={handleClick}>
-      <CardBody fontSize={150}> {currentQuiz}</CardBody>
+    <Card
+      align="center"
+      justify="center"
+      onClick={handleClick}
+      cursor="pointer"
+      borderWidth="1px"
+      borderRadius="md"
+      boxShadow="sm"
+      p={4}
+      _hover={{ boxShadow: "md", transform: "scale(1.05)" }}
+      transition="box-shadow 0.2s, transform 0.2s"
+      width={{ base: "100%", md: "80%" }}
+      mt={4}
+      mb={6}
+      bg="#7FA1C3"
+    >
+      <CardBody
+        fontSize={{ base: "8xl", md: "8xl" }}
+        fontWeight="bold"
+        textColor="black"
+      >
+        {currentQuiz}
+      </CardBody>
     </Card>
   )
 }
