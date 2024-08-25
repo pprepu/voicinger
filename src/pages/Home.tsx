@@ -1,5 +1,5 @@
 import React from "react"
-import { Box, Container, Heading, Text } from "@chakra-ui/react"
+import { Box, Container, Heading } from "@chakra-ui/react"
 import Quizzer from "../components/quizzer"
 
 const Home: React.FC = () => {
@@ -9,10 +9,9 @@ const Home: React.FC = () => {
         <Heading as="h1" size="xl" mb={6}>
           Voicinger
         </Heading>
-        
+
         <Quizzer />
       </Box>
-     
     </Container>
   )
 }

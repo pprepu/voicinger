@@ -2,16 +2,17 @@ import { Card, CardBody } from "@chakra-ui/react"
 
 interface QuizCardProps {
   setIsStarted: React.Dispatch<React.SetStateAction<boolean>>
+  currentQuiz: string
 }
 
-const QuizCard: React.FC<QuizCardProps> = ({ setIsStarted }) => {
+const QuizCard: React.FC<QuizCardProps> = ({ setIsStarted, currentQuiz }) => {
   const handleClick = () => {
     setIsStarted((is) => !is)
   }
 
   return (
     <Card align="center" onClick={handleClick}>
-      <CardBody> quizcard </CardBody>
+      <CardBody fontSize={150}> {currentQuiz}</CardBody>
     </Card>
   )
 }
