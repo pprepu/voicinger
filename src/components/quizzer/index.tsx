@@ -5,7 +5,7 @@ import { useEffect, useState } from "react"
 import { createBasicScales } from "../../utils/scales"
 import { Scale } from "../../utils/scales/types"
 import { shuffleArray } from "../../utils/array"
-import { devLog } from "../../utils/logger"
+import logger from "../../utils/logger"
 
 const initialScales = shuffleArray(createBasicScales())
 const DEFAULT_TIME = 4
@@ -47,7 +47,7 @@ const Quizzer: React.FC = () => {
     }
     // eslint-disable-next-line
   }, [isStarted])
-  devLog(currentIndex, currentIntervalId)
+  logger.info(currentIndex, currentIntervalId)
   const currentQuiz = selectedScales[currentIndex]?.tonic ?? ""
 
   return (
