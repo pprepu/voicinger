@@ -12,7 +12,7 @@ const DEFAULT_TIME = 4
 
 const Quizzer: React.FC = () => {
   const [isStarted, setIsStarted] = useState(false)
-  const [selectedScales] = useState<Scale[]>(initialScales)
+  const [selectedScales, setSelectedScales] = useState<Scale[]>(initialScales)
   const [currentIndex, setCurrentIndex] = useState<number>(0)
   const [currentIntervalId, setCurrentIntervalId] = useState<
     NodeJS.Timeout | undefined
@@ -28,6 +28,7 @@ const Quizzer: React.FC = () => {
       }
       return ci + 1
     })
+    setSelectedScales(shuffleArray(selectedScales))
   }
 
   useEffect(() => {
