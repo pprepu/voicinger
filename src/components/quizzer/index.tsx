@@ -78,6 +78,7 @@ const Quizzer: React.FC = () => {
         setIsStarted={setIsStarted}
         currentQuiz={currentQuiz}
         animate={isStarted && currentIndex === 0}
+        isStarted={isStarted}
       />
       <Text
         fontSize={{ base: "2xl", md: "4xl" }}

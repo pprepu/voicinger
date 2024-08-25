@@ -4,6 +4,7 @@ interface QuizCardProps {
   setIsStarted: React.Dispatch<React.SetStateAction<boolean>>
   currentQuiz: string
   animate: boolean
+  isStarted: boolean
 }
 
 const pulseAnimation = keyframes`
@@ -16,6 +17,7 @@ const QuizCard: React.FC<QuizCardProps> = ({
   setIsStarted,
   currentQuiz,
   animate,
+  isStarted,
 }) => {
   const handleClick = () => {
     setIsStarted((is) => !is)
@@ -43,6 +45,7 @@ const QuizCard: React.FC<QuizCardProps> = ({
         fontWeight="bold"
         textColor="black"
         letterSpacing="wider"
+        sx={!isStarted ? { filter: "blur(30px)" } : undefined}
       >
         {currentQuiz}
       </CardBody>
