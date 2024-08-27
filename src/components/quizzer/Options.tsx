@@ -1,5 +1,5 @@
 import { Flex } from "@chakra-ui/react"
-import CustomRangeSlider from "../generic/CustomRangeSlider"
+import RangeSliderCustom from "../generic/RangeSliderCustom"
 
 interface OptionsProps {
   isStarted: boolean
@@ -21,7 +21,7 @@ const Options: React.FC<OptionsProps> = ({
   }
   return (
     <Flex mb="1em" w="100%">
-      <CustomRangeSlider
+      <RangeSliderCustom
         minValue={1}
         maxValue={8}
         defaultValue={defaultTime}

@@ -8,14 +8,14 @@ import {
   Text,
 } from "@chakra-ui/react"
 
-interface CustomRangeSliderProps {
+interface RangeSliderCustomProps {
   minValue: number
   maxValue: number
   handleChange: (value: number) => void
   defaultValue: number
 }
 
-const CustomRangeSlider: React.FC<CustomRangeSliderProps> = ({
+const RangeSliderCustom: React.FC<RangeSliderCustomProps> = ({
   minValue,
   maxValue,
   handleChange,
@@ -58,4 +58,4 @@ const CustomRangeSlider: React.FC<CustomRangeSliderProps> = ({
   )
 }
 
-export default CustomRangeSlider
+export default RangeSliderCustom
