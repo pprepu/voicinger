@@ -13,6 +13,8 @@ const pulseAnimation = keyframes`
   100% { transform: scale(1); background-color: #7FA1C3; }
 `
 
+const BLURRED_VALUE = "#"
+
 const QuizCard: React.FC<QuizCardProps> = ({
   setIsStarted,
   currentQuiz,
@@ -47,7 +49,7 @@ const QuizCard: React.FC<QuizCardProps> = ({
         letterSpacing="wider"
         sx={!isStarted ? { filter: "blur(30px)" } : undefined}
       >
-        {currentQuiz}
+        {isStarted ? currentQuiz : BLURRED_VALUE}
       </CardBody>
     </Card>
   )
