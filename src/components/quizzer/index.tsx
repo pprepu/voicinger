@@ -6,6 +6,7 @@ import { createBasicScales } from "../../utils/scales"
 import { Scale } from "../../utils/scales/types"
 import { shuffleArray } from "../../utils/array"
 import logger from "../../utils/logger"
+import { calcPercentage } from "../../utils/general"
 
 // initial values
 const INITIAL_IS_STARTED = false
@@ -66,6 +67,10 @@ const Quizzer: React.FC = () => {
   logger.info(currentIndex, currentIntervalId)
   logger.info(selectedScales.map((scale) => scale.tonic).join("-"))
   const currentQuiz = selectedScales[currentIndex]?.tonic ?? ""
+  const currentProgress = calcPercentage(
+    currentIndex + 1,
+    selectedScales.length
+  )
 
   return (
     <Flex flexDir="column" alignItems="center" mb="2">
@@ -79,6 +84,7 @@ const Quizzer: React.FC = () => {
         currentQuiz={currentQuiz}
         animate={isStarted && currentIndex === 0}
         isStarted={isStarted}
+        progress={currentProgress}
       />
       <Text
         fontSize={{ base: "2xl", md: "4xl" }}

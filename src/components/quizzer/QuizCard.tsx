@@ -1,10 +1,12 @@
-import { Card, CardBody, keyframes } from "@chakra-ui/react"
+import { Card, CardBody, CardFooter, keyframes } from "@chakra-ui/react"
+import ProgressBarCustom from "../generic/ProgressBarCustom"
 
 interface QuizCardProps {
   setIsStarted: React.Dispatch<React.SetStateAction<boolean>>
   currentQuiz: string
   animate: boolean
   isStarted: boolean
+  progress: number
 }
 
 const pulseAnimation = keyframes`
@@ -20,6 +22,7 @@ const QuizCard: React.FC<QuizCardProps> = ({
   currentQuiz,
   animate,
   isStarted,
+  progress,
 }) => {
   const handleClick = () => {
     setIsStarted((is) => !is)
@@ -51,6 +54,9 @@ const QuizCard: React.FC<QuizCardProps> = ({
       >
         {isStarted ? currentQuiz : BLURRED_VALUE}
       </CardBody>
+      <CardFooter width="100%" justify="center">
+        <ProgressBarCustom value={progress} colorScheme="blue" />
+      </CardFooter>
     </Card>
   )
 }
