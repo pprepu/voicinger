@@ -11,7 +11,7 @@ import { calcPercentage } from "../../utils/general"
 // initial values
 const INITIAL_IS_STARTED = false
 const INITIAL_SCALES = shuffleArray(createBasicScales())
-const INITIAL_QUIZ_TIME = 4
+const INITIAL_QUIZ_TIME = 3
 const INITIAL_INDEX = 0
 const INITIAL_INTERVAL_ID = undefined
 const INITIAL_ROUNDS_QUIZZED = 0
