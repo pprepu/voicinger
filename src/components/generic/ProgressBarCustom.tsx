@@ -3,7 +3,7 @@ import { Flex, Progress, ProgressProps, Text } from "@chakra-ui/react"
 interface ProgressBarCustomProps extends ProgressProps {
   value: number
   label?: string
-  colorScheme?: string
+  colorScheme: string
   size?: "xs" | "sm" | "md" | "lg"
   hasStripe?: boolean
   isAnimated?: boolean
@@ -13,7 +13,7 @@ interface ProgressBarCustomProps extends ProgressProps {
 const ProgressBarCustom: React.FC<ProgressBarCustomProps> = ({
   value,
   label,
-  colorScheme = "blue",
+  colorScheme,
   size = "md",
   hasStripe = false,
   isAnimated = false,

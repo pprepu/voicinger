@@ -89,7 +89,7 @@ const Quizzer: React.FC = () => {
       <Text
         fontSize={{ base: "2xl", md: "4xl" }}
         fontWeight="bold"
-        color="#6482AD"
+        color="mainDark.500"
         textAlign="center"
         textTransform="uppercase"
         letterSpacing="widest"
@@ -99,11 +99,11 @@ const Quizzer: React.FC = () => {
       <Button
         mt={4}
         size="lg"
-        bg="#7FA1C3"
+        bg="mainLight.500"
         color="white"
         _hover={{
           transform: "scale(1.1)",
-          bg: "#6482AD",
+          bg: "mainDark.500",
         }}
         transition="all 0.3s ease-in-out"
         borderRadius="full"

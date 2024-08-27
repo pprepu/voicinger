@@ -34,7 +34,7 @@ const RangeSliderCustom: React.FC<RangeSliderCustomProps> = ({
         mb="4"
         fontSize={{ base: "2xl", md: "4xl" }}
         fontWeight="bold"
-        color="#6482AD"
+        color="mainDark.500"
         textAlign="center"
         textTransform="uppercase"
         letterSpacing="widest"
@@ -50,7 +50,7 @@ const RangeSliderCustom: React.FC<RangeSliderCustomProps> = ({
         defaultValue={defaultValue}
       >
         <SliderTrack>
-          <SliderFilledTrack bg="#6482AD" />
+          <SliderFilledTrack bg="mainDark.500" />
         </SliderTrack>
         <SliderThumb />
       </Slider>

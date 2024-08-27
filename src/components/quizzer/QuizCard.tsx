@@ -42,7 +42,7 @@ const QuizCard: React.FC<QuizCardProps> = ({
       width={{ base: "100%", md: "80%" }}
       mt={4}
       mb={6}
-      bg="#7FA1C3"
+      bg="mainLight.500"
       animation={animate ? `${pulseAnimation} 0.8s ease-in-out` : undefined}
     >
       <CardBody
@@ -55,7 +55,7 @@ const QuizCard: React.FC<QuizCardProps> = ({
         {isStarted ? currentQuiz : BLURRED_VALUE}
       </CardBody>
       <CardFooter width="100%" justify="center">
-        <ProgressBarCustom value={progress} colorScheme="blue" />
+        <ProgressBarCustom value={progress} colorScheme="mainDark" />
       </CardFooter>
     </Card>
   )
