@@ -15,7 +15,7 @@ const Home: React.FC = () => {
         boxShadow="sm"
         p={{ base: 3, md: 8 }}
         fontSize={{ base: "md", md: "xl" }}
-        bg="#E2DAD6"
+        bg="background.400"
         _hover={{ boxShadow: "md" }}
         transition="box-shadow 0.2s"
       >

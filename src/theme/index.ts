@@ -1,7 +1,11 @@
 import { extendTheme } from "@chakra-ui/react"
-const colors = {
+export const colors = {
   mainLight: { 500: "#7FA1C3" },
   mainDark: { 500: "#6482AD" },
+  background: {
+    100: "#F5EDED",
+    400: "#E2DAD6",
+  },
 }
 
 const theme = extendTheme({
@@ -9,7 +13,7 @@ const theme = extendTheme({
   styles: {
     global: {
       body: {
-        bg: "#F5EDED",
+        bg: colors.background[100],
       },
     },
   },

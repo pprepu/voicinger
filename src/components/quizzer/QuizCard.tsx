@@ -1,5 +1,6 @@
 import { Card, CardBody, CardFooter, keyframes } from "@chakra-ui/react"
 import ProgressBarCustom from "../generic/ProgressBarCustom"
+import { colors } from "../../theme"
 
 interface QuizCardProps {
   setIsStarted: React.Dispatch<React.SetStateAction<boolean>>
@@ -9,10 +10,13 @@ interface QuizCardProps {
   progress: number
 }
 
+const colorMainLight = colors.mainLight[500]
+const colorMainDark = colors.mainDark[500]
+
 const pulseAnimation = keyframes`
-  0% { transform: scale(1); background-color: #7FA1C3; }
-  50% { transform: scale(1.1); background-color: #6482AD; }
-  100% { transform: scale(1); background-color: #7FA1C3; }
+  0% { transform: scale(1); background-color: ${colorMainLight}; }
+  50% { transform: scale(1.1); background-color: ${colorMainDark}; }
+  100% { transform: scale(1); background-color: ${colorMainLight}; }
 `
 
 const BLURRED_VALUE = "#"
