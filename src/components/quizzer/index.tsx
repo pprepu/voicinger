@@ -68,8 +68,8 @@ const Quizzer: React.FC = () => {
   logger.info(selectedScales.map((scale) => scale.tonic).join("-"))
   const currentQuiz = selectedScales[currentIndex]?.tonic ?? ""
   const currentProgress = calcPercentage(
-    currentIndex + 1,
-    selectedScales.length
+    currentIndex,
+    selectedScales.length - 1
   )
 
   return (
