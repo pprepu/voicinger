@@ -23,7 +23,7 @@ const Options: React.FC<OptionsProps> = ({
     <Flex mb="1em" w="100%">
       <RangeSliderCustom
         minValue={1}
-        maxValue={8}
+        maxValue={6}
         defaultValue={defaultTime}
         handleChange={handleChange}
       />

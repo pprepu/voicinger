@@ -46,6 +46,7 @@ const RangeSliderCustom: React.FC<RangeSliderCustomProps> = ({
         value={sliderValue}
         min={minValue}
         max={maxValue}
+        step={0.5}
         onChange={onChange}
         defaultValue={defaultValue}
       >
