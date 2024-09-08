@@ -78,6 +78,8 @@ const Quizzer: React.FC = () => {
         isStarted={isStarted}
         setQuizTime={setQuizTime}
         defaultTime={quizTime}
+        selectedScales={selectedScales}
+        setSelectedScales={setSelectedScales}
       />
       <QuizCard
         setIsStarted={setIsStarted}
