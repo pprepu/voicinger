@@ -1,7 +1,8 @@
-import { Box } from "@chakra-ui/react"
+import { Box, Button } from "@chakra-ui/react"
 import RangeSliderCustom from "../generic/RangeSliderCustom"
 import AdditionalOptions from "./AdditionalOptions"
 import { Scale } from "../../utils/scales/types"
+import { useState } from "react"
 
 interface OptionsProps {
   isStarted: boolean
@@ -11,6 +12,8 @@ interface OptionsProps {
   setSelectedScales: React.Dispatch<React.SetStateAction<Scale[]>>
 }
 
+const DEFAULT_SHOW_ADDITIONAL_OPTIONS = false
+
 const Options: React.FC<OptionsProps> = ({
   isStarted,
   setQuizTime,
@@ -18,6 +21,10 @@ const Options: React.FC<OptionsProps> = ({
   selectedScales,
   setSelectedScales,
 }) => {
+  const [showAdditionalOptions, setShowAdditionalOptions] = useState(
+    DEFAULT_SHOW_ADDITIONAL_OPTIONS
+  )
+
   if (isStarted) {
     return <></>
   }
@@ -33,7 +40,32 @@ const Options: React.FC<OptionsProps> = ({
         defaultValue={defaultTime}
         handleChange={handleChange}
       />
-      <AdditionalOptions selectedScales={selectedScales} setSelectedScales={setSelectedScales} />
+      {showAdditionalOptions ? (
+        <AdditionalOptions
+          selectedScales={selectedScales}
+          setSelectedScales={setSelectedScales}
+          hideAdditionalOptions={() => setShowAdditionalOptions(false)}
+        />
+      ) : (
+        <Button
+          mt={0}
+          size="sm"
+          bg="mainLight.500"
+          color="white"
+          _hover={{
+            transform: "scale(1.1)",
+            bg: "mainDark.500",
+          }}
+          transition="all 0.3s ease-in-out"
+          borderRadius="full"
+          boxShadow="md"
+          fontWeight="bold"
+          letterSpacing="wider"
+          onClick={() => setShowAdditionalOptions(true)}
+        >
+          More options
+        </Button>
+      )}
     </Box>
   )
 }

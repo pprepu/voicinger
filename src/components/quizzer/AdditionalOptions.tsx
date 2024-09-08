@@ -6,11 +6,13 @@ import { Scale } from "../../utils/scales/types"
 interface AdditionalOptionsProps {
   selectedScales: Scale[]
   setSelectedScales: React.Dispatch<React.SetStateAction<Scale[]>>
+  hideAdditionalOptions: () => void
 }
 
 const AdditionalOptions: React.FC<AdditionalOptionsProps> = ({
   selectedScales,
   setSelectedScales,
+  hideAdditionalOptions,
 }) => {
   const allTonicOptions = createChromaticNotesArray()
   const [isSelectAllTonicsChecked, setIsSelectAllTonicsChecked] = useState(
@@ -43,7 +45,7 @@ const AdditionalOptions: React.FC<AdditionalOptionsProps> = ({
   }
 
   return (
-    <Box p={4} maxW="400px" margin="auto">
+    <Box p={4} maxW="400px" margin="auto" onClick={hideAdditionalOptions}>
       <Box mb={4}>
         <Checkbox isChecked={isSelectAllTonicsChecked} onChange={handleSelectAllTonics}>
           Select All
