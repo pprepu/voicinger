@@ -1,12 +1,5 @@
 import React, { useState } from "react"
-import {
-  Box,
-  Slider,
-  SliderTrack,
-  SliderFilledTrack,
-  SliderThumb,
-  Text,
-} from "@chakra-ui/react"
+import { Box, Slider, SliderTrack, SliderFilledTrack, SliderThumb, Text } from "@chakra-ui/react"
 
 interface RangeSliderCustomProps {
   minValue: number

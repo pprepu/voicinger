@@ -20,12 +20,10 @@ const Quizzer: React.FC = () => {
   const [isStarted, setIsStarted] = useState(INITIAL_IS_STARTED)
   const [selectedScales, setSelectedScales] = useState<Scale[]>(INITIAL_SCALES)
   const [currentIndex, setCurrentIndex] = useState<number>(INITIAL_INDEX)
-  const [currentIntervalId, setCurrentIntervalId] = useState<
-    NodeJS.Timeout | undefined
-  >(INITIAL_INTERVAL_ID)
-  const [roundsQuizzed, setRoundsQuizzed] = useState<number>(
-    INITIAL_ROUNDS_QUIZZED
+  const [currentIntervalId, setCurrentIntervalId] = useState<NodeJS.Timeout | undefined>(
+    INITIAL_INTERVAL_ID
   )
+  const [roundsQuizzed, setRoundsQuizzed] = useState<number>(INITIAL_ROUNDS_QUIZZED)
   const [quizTime, setQuizTime] = useState<number>(INITIAL_QUIZ_TIME)
 
   const resetState = () => {
@@ -67,10 +65,7 @@ const Quizzer: React.FC = () => {
   logger.info(currentIndex, currentIntervalId)
   logger.info(selectedScales.map((scale) => scale.tonic).join("-"))
   const currentQuiz = selectedScales[currentIndex]?.tonic ?? ""
-  const currentProgress = calcPercentage(
-    currentIndex,
-    selectedScales.length - 1
-  )
+  const currentProgress = calcPercentage(currentIndex, selectedScales.length - 1)
 
   return (
     <Flex flexDir="column" alignItems="center" mb="2">

@@ -33,10 +33,7 @@ const Options: React.FC<OptionsProps> = ({
         defaultValue={defaultTime}
         handleChange={handleChange}
       />
-      <AdditionalOptions
-        selectedScales={selectedScales}
-        setSelectedScales={setSelectedScales}
-      />
+      <AdditionalOptions selectedScales={selectedScales} setSelectedScales={setSelectedScales} />
     </Box>
   )
 }

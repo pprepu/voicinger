@@ -1,10 +1,6 @@
 import { useState } from "react"
 import { Checkbox, CheckboxGroup, Box, SimpleGrid } from "@chakra-ui/react"
-import {
-  createBasicScales,
-  createChromaticNotesArray,
-  mapTonicToScale,
-} from "../../utils/scales"
+import { createBasicScales, createChromaticNotesArray, mapTonicToScale } from "../../utils/scales"
 import { Scale } from "../../utils/scales/types"
 
 interface AdditionalOptionsProps {
@@ -49,10 +45,7 @@ const AdditionalOptions: React.FC<AdditionalOptionsProps> = ({
   return (
     <Box p={4} maxW="400px" margin="auto">
       <Box mb={4}>
-        <Checkbox
-          isChecked={isSelectAllTonicsChecked}
-          onChange={handleSelectAllTonics}
-        >
+        <Checkbox isChecked={isSelectAllTonicsChecked} onChange={handleSelectAllTonics}>
           Select All
         </Checkbox>
       </Box>
