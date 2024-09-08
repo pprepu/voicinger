@@ -2,6 +2,7 @@ import { useState } from "react"
 import { Checkbox, CheckboxGroup, SimpleGrid, Button, Flex } from "@chakra-ui/react"
 import { createBasicScales, createChromaticNotesArray, mapTonicToScale } from "../../utils/scales"
 import { Scale } from "../../utils/scales/types"
+import { shuffleArray } from "../../utils/array"
 
 interface AdditionalOptionsProps {
   selectedScales: Scale[]
@@ -23,7 +24,7 @@ const AdditionalOptions: React.FC<AdditionalOptionsProps> = ({
 
   const handleSelectAllTonics = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.checked) {
-      setSelectedScales(createBasicScales())
+      setSelectedScales(shuffleArray(createBasicScales()))
       setIsSelectAllTonicsChecked(true)
     } else {
       setSelectedScales([])
@@ -35,7 +36,7 @@ const AdditionalOptions: React.FC<AdditionalOptionsProps> = ({
     const newSelectedScales = selectedTonicNotes.has(value)
       ? selectedScales.filter((scale) => scale.tonic !== value)
       : [...selectedScales, mapTonicToScale(value)]
-    setSelectedScales(newSelectedScales)
+    setSelectedScales(shuffleArray(newSelectedScales))
 
     if (newSelectedScales.length === allTonicOptions.length) {
       setIsSelectAllTonicsChecked(true)
