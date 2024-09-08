@@ -33,7 +33,7 @@ const Options: React.FC<OptionsProps> = ({
     setQuizTime(time)
   }
   return (
-    <Box mb="1em" w="100%">
+    <Box mb="1em" w="100%" margin="auto">
       <RangeSliderCustom
         minValue={1}
         maxValue={6}

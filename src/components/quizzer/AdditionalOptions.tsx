@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { Checkbox, CheckboxGroup, Box, SimpleGrid } from "@chakra-ui/react"
+import { Checkbox, CheckboxGroup, SimpleGrid, Button, Flex } from "@chakra-ui/react"
 import { createBasicScales, createChromaticNotesArray, mapTonicToScale } from "../../utils/scales"
 import { Scale } from "../../utils/scales/types"
 
@@ -45,12 +45,25 @@ const AdditionalOptions: React.FC<AdditionalOptionsProps> = ({
   }
 
   return (
-    <Box p={4} maxW="400px" margin="auto" onClick={hideAdditionalOptions}>
-      <Box mb={4}>
-        <Checkbox isChecked={isSelectAllTonicsChecked} onChange={handleSelectAllTonics}>
+    <Flex p={4} maxW="400px" flexDir="column" margin="auto" justify="center">
+      <Flex mb={4}>
+        <Checkbox
+          isChecked={isSelectAllTonicsChecked}
+          onChange={handleSelectAllTonics}
+          colorScheme="mainDark"
+          sx={{
+            "& .chakra-checkbox__control": {
+              borderRadius: "6px",
+            },
+            "& .chakra-checkbox__label": {
+              fontSize: "sm",
+              color: "mainDark.500",
+            },
+          }}
+        >
           Select All
         </Checkbox>
-      </Box>
+      </Flex>
 
       <CheckboxGroup value={selectedScales.map((scale) => scale.tonic)}>
         <SimpleGrid columns={4} spacing={4}>
@@ -60,13 +73,42 @@ const AdditionalOptions: React.FC<AdditionalOptionsProps> = ({
               value={note}
               isChecked={selectedTonicNotes.has(note)}
               onChange={() => handleCheckboxChange(note)}
+              colorScheme="mainLight"
+              sx={{
+                "& .chakra-checkbox__control": {
+                  borderRadius: "6px",
+                },
+                "& .chakra-checkbox__label": {
+                  fontSize: "sm",
+                  color: "mainDark.500",
+                },
+              }}
             >
               {note}
             </Checkbox>
           ))}
         </SimpleGrid>
       </CheckboxGroup>
-    </Box>
+
+      <Button
+        mt={4}
+        size="sm"
+        bg="mainLight.500"
+        color="white"
+        _hover={{
+          transform: "scale(1.1)",
+          bg: "mainDark.500",
+        }}
+        transition="all 0.3s ease-in-out"
+        borderRadius="full"
+        boxShadow="md"
+        fontWeight="bold"
+        letterSpacing="wider"
+        onClick={hideAdditionalOptions}
+      >
+        Hide options
+      </Button>
+    </Flex>
   )
 }
 
